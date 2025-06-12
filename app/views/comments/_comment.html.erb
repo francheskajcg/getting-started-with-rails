@@ -1,0 +1,16 @@
+<p>
+  <strong>Comentador:</strong>
+  <%= comment.commenter %>
+</p>
+
+<p>
+  <strong>Comentario:</strong>
+  <%= comment.body %>
+</p>
+
+<p>
+  <%= link_to 'Destruir comentario', [comment.article, comment],
+              method: :delete,
+              data: { confirm: "Are you sure?" },
+              class: "btn btn-outline-danger" %>
+</p>

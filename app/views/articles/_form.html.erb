@@ -1,0 +1,37 @@
+<%= form_with model: article, local: true do |form| %>
+  <div class="mb-3">
+    <%= form.label :Artículo, class: "form-label fw-bold" %>
+    <%= form.text_field :title, class: "form-control", placeholder: "Introduzca el nombre" %>
+
+    <%#la siguente linea muestra los mesajes de error cuando no se crea bien el artículo.%>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div class="form-text text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :Contenido, class: "form-label fw-bold" %>
+    <%= form.text_area :body, class: "form-control", rows: 6, placeholder: "Escribe el contenido de tu artículo" %>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div class="form-text text-danger"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <% article.errors.full_messages_for(:status).each do |message| %>
+      <div class="form-text text-danger"><%= message %></div>
+    <% end %>
+  
+
+  <div>
+<%= form.label :status, "Estado", class: "form-label fw-bold" %>
+<%= form.select :status, ['público', 'privado', 'archivado'], { selected: 'público' }, { class: "form-select" } %>
+</div>
+</div>
+
+
+  <div class="text-end">
+    <%= form.submit "Guardar Artículo", class: "btn btn-success" %>
+  </div>
+<% end %>
+

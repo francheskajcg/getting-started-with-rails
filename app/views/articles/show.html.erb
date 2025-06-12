@@ -1,0 +1,52 @@
+<div class="container mt-5">
+
+  <!-- Título del artículo -->
+  <div class="mb-4">
+    <h1 class="text-dark"><%= @article.title %></h1>
+    <p class="lead"><%= @article.body %></p>
+  </div>
+<!-- esto es lo que me devuelve @article = Article.find(params[:id]) -->
+
+
+  <!-- Botones Editar y Eliminar -->
+  <div class="mb-5 d-flex gap-2">
+    <%= link_to "✏️ Editar", edit_article_path(@article), class: "btn btn-outline-primary" %>
+    <%= link_to "🗑️ Destruir", article_path(@article),
+                method: :delete,
+                data: { confirm: "Esta seguro?" },
+                class: "btn btn-outline-danger" %>
+  </div>
+
+
+
+  <!-- Sección de Comentarios ya realizados -->
+  <div class="mb-5">
+    <h2 class="mb-3">💬 Comentarios</h2>
+      <div class="list-group">
+        <%= render @article.comments %>
+      </div>
+   </div>
+ <!-- aqui se pinta el partial con los comentarios y el boton para destruir -->
+     
+      
+  
+
+  <!-- Formulario para agregar comentario -->
+  <div class="card p-4 shadow-sm mb-5">
+    <h2 class="mb-4"> Añade un comentario</h2>
+    <%= render 'comments/form' %>
+  </div>
+<!-- aqui se pinta el partial para añadir un comentario-->
+
+
+
+  <!-- Botón para volver -->
+  <div class="text-center">
+    <%= link_to articles_path, class: "btn btn-lg btn-primary d-inline-flex align-items-center shadow-sm" do %>
+      <i class="bi bi-arrow-left-circle me-2"></i> ← Volver 
+    <% end %>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Artículos</h1>
+    <%= link_to "Nuevo Artículo", new_article_path, class: "btn btn-success" %>
+  </div>
+
+  <div class="alert alert-info">
+    Nuestro blog tiene <strong><%= Article.public_count %></strong> artículos y sigue creciendo!!
+  </div>
+
+  <ul class="list-group">
+    <% @articles.each do |article| %>
+    
+      <li class="list-group-item">
+        <%= link_to article.title, article, class: "text-decoration-none" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+ <%# @articles = es la variable de instancia que he creado en el controlador para poder ver todos los articulos.%>
+ 
+
+
+
+
+
+
+
+
