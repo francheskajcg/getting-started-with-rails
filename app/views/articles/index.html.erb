@@ -8,7 +8,9 @@
     Nuestro blog tiene <strong><%= Article.public_count %></strong> artículos y sigue creciendo!!
   </div>
 
-<%=render partial: "tabla_articulos", locals: {articles: @articles}%>
+<%=render "filtro_articulos"%>
+
+<%=render "tabla_articulos", articles: @articles%>
 <%#esto renderiza el partial y le pasa @articles como una variable local llamada articles%>
 
 </div>

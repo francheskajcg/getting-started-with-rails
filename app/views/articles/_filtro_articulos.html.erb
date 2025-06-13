@@ -1,0 +1,12 @@
+<%#aqui pongo el select para el flitro%>
+<%= form_with url: articles_path, method: :get, local: true do |form| %>
+
+<div>
+<%= form.label :status, "Estado", class: "form-label fw-bold" %>
+<%= form.select :status, ['público', 'privado', 'archivado'], 
+{ selected: 'público' }, { class: "form-select", onchange: 'this.form.submit();' } %>  
+
+<%# form.submit "Filtrar" %>
+
+</div>
+<% end %>

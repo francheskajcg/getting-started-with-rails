@@ -3,7 +3,10 @@ class ArticlesController < ApplicationController
 
   #
   def index
-     
+     puts "2"*100
+     puts params.inspect
+     @articles = Article.where(status:params[:status])
+
   end
 
   # @articles = creo una variable de instacia para poder referenciarla (llamarla) en las vistas
