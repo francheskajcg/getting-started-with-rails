@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
     include ArticlesFilter
+
+  #
   def index
      
   end
