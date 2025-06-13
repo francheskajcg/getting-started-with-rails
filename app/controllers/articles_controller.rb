@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
+    include ArticlesFilter
   def index
-    @articles = Article.all
+     
   end
 
   # @articles = creo una variable de instacia para poder referenciarla (llamarla) en las vistas
