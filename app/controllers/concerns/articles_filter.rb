@@ -10,7 +10,7 @@ module ArticlesFilter
   private
 
   def load_public_articles
-    @articles = Article.where(status: "público")
+    @articles = Article.where(status: "mostrar todo")
   end
 end
 

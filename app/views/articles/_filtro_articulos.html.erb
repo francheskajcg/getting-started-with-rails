@@ -3,10 +3,11 @@
 
 <div>
 <%= form.label :status, "Estado", class: "form-label fw-bold" %>
-<%= form.select :status, ['público', 'privado', 'archivado'], 
-{ selected: 'público' }, { class: "form-select", onchange: 'this.form.submit();' } %>  
-
-<%# form.submit "Filtrar" %>
-
+<%= form.select :status, ['público', 'privado', 'archivado', 'mostrar todo'], 
+{ selected: params[:status] }, { class: "form-select" } %>  
+<%= form.submit "Filtrar" %>
 </div>
 <% end %>
+
+<%#he cambiado el { selected: 'público' } para que no aparazca como prederterminado y cuando el usuario cambie el%>
+<%#parametro si recarga la pagina se guarde la opcion que ha selccionado%>

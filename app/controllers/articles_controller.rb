@@ -3,11 +3,19 @@ class ArticlesController < ApplicationController
 
   #
   def index
+    #pruebas
      puts "2"*100
      puts params.inspect
-     @articles = Article.where(status:params[:status])
-
+     if params[:status].present? && params[:status] != "mostrar todo"
+      @articles = Article.where(status: params[:status])
+    else
+      @articles = Article.all
+    end
   end
+
+#params[:status].present? → verifica que el usuario haya seleccionado algo.
+#params[:status] != "mostrar todo" → si seleccionó algo diferente a "mostrar todo", filtra.
+#Article.all → si seleccionó "mostrar todo" o no seleccionó nada, muestra todos los artículos.
 
   # @articles = creo una variable de instacia para poder referenciarla (llamarla) en las vistas
   # Article.all = obtiene todos los articulos de la base de datos
