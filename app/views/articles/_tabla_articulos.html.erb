@@ -1,9 +1,17 @@
+<ul class="list-group">
+  <% @articles.each do |article| %>
+    <li class="list-group-item d-flex align-items-center">
+      <% if article.status == 'público' %>
+        <i class="fa-solid fa-unlock me-2 text-success"></i>
+      <% elsif article.status == 'privado' %>
+        <i class="fa-solid fa-lock me-2 text-danger"></i>
+      <% elsif article.status == 'archivado' %>
+        <i class="fa-solid fa-box-archive me-2 text-secondary"></i>
+      <% else %>
+        <i class="fa-solid fa-question me-2 text-muted"></i>
+      <% end %>
 
-  <ul class="list-group">
-    <% articles.each do |article| %>
-    
-      <li class="list-group-item">
-        <%= link_to article.title, article, class: "text-decoration-none" %>
-      </li>
-    <% end %>
-  </ul>
+      <%= link_to article.title, article, class: "text-decoration-none" %>
+    </li>
+  <% end %>
+</ul>
