@@ -3,9 +3,7 @@ class ArticlesController < ApplicationController
 
   #
   def index
-    #pruebas
-     puts "2"*100
-     puts params.inspect
+    
      if params[:status].present? && params[:status] != "mostrar todo"
       @articles = Article.where(status: params[:status])
     else
@@ -64,6 +62,7 @@ class ArticlesController < ApplicationController
 
     redirect_to root_path
   end
+
 
   private
     def article_params

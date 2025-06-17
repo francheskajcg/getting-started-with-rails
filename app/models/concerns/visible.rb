@@ -1,7 +1,7 @@
 module Visible
   extend ActiveSupport::Concern
 
-  VALID_STATUSES = ['público', 'privado', 'archivado', 'mostrar todo']
+  VALID_STATUSES = ['público', 'privado', 'archivado']
 
   included do
     validates :status, inclusion: { in: VALID_STATUSES }
@@ -9,7 +9,7 @@ module Visible
 
   class_methods do
     def public_count
-      where(status: 'mostrar todo').count
+      where(status: 'público').count
     end
   end
 

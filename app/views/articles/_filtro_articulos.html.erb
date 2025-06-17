@@ -1,13 +1,16 @@
 <%#aqui pongo el select para el flitro%>
-<%= form_with url: articles_path, method: :get, local: true do |form| %>
+<%= form_with url: articles_path, method: :get, local: true, class: "row g-2 align-items-end" do |form| %>
 
-<div>
+<div class="col-auto">
 <%= form.label :status, "Estado", class: "form-label fw-bold" %>
-<%= form.select :status, ['público', 'privado', 'archivado', 'mostrar todo'], 
+<%= form.select :status, Visible::VALID_STATUSES + ['mostrar todo'], 
 { selected: params[:status] }, { class: "form-select" } %>  
-<%= form.submit "Filtrar" %>
 </div>
+  <div class="col-auto">
+    <%= form.submit "Filtrar", class: "btn btn-primary" %>
+  </div>
 <% end %>
 
 <%#he cambiado el { selected: 'público' } para que no aparazca como prederterminado y cuando el usuario cambie el%>
 <%#parametro si recarga la pagina se guarde la opcion que ha selccionado%>
+<%# Visible::VALID_STATUSES  se trae los estados del concers visible%>

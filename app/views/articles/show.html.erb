@@ -1,10 +1,13 @@
 <div class="container mt-5">
-
   <!-- Título del artículo -->
   <div class="mb-4">
-    <h1 class="text-dark"><%= @article.title %></h1>
+    <h1 class="text-dark">
+      <%= icon_for_status(@article.status) %>
+      <%= @article.title %>
+    </h1>
     <p class="lead"><%= @article.body %></p>
   </div>
+</div>
 <!-- esto es lo que me devuelve @article = Article.find(params[:id]) -->
 
 
