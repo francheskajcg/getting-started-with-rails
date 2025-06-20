@@ -1,7 +1,7 @@
 <ul class="list-group">
   <% @articles.each do |article| %>
     <li class="list-group-item d-flex align-items-center">
-      <i class="fa-solid me-2 <%= article.visible_to_icon %>"></i>
+     <%= icon_for_status(article.status) %>
       <%= link_to article.title, article, class: "text-decoration-none" %>
     </li>
   <% end %>

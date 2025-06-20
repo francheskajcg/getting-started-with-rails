@@ -1,0 +1,19 @@
+<%#aqui pongo el filtro para tipo de artículo%>
+<%= form_with url: articles_path, method: :get, local: true, class: "row g-2 align-items-end" do |form| %>
+
+<div class="col-auto">
+<%= form.label :tipo_de_articulo, "Tipo de artículo", class: "form-label fw-bold" %>
+
+<%= form.select :tipo_de_articulo,
+      Article.tipo_de_articulos.keys.map { |tipo| [t("enums.article.tipo_de_articulo.#{tipo}"), tipo] },
+      { prompt: "Seleccione un tipo" },
+      class: "form-select" %>
+
+</div>
+  <div class="col-auto">
+    <%= form.submit "Filtrar", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+
+

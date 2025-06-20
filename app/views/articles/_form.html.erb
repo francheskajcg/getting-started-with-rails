@@ -21,13 +21,17 @@
     <% article.errors.full_messages_for(:status).each do |message| %>
       <div class="form-text text-danger"><%= message %></div>
     <% end %>
-  
 
   <div>
 <%= form.label :status, "Estado", class: "form-label fw-bold" %>
 <%= form.select :status, ['público', 'privado', 'archivado'], { selected: 'público' }, { class: "form-select" } %>
 </div>
 </div>
+
+<!--Aquí agrego el campo tipo_de_articulo -->
+
+<%= render 'tipo_de_articulo', form: form, article: article %>
+
 
 
   <div class="text-end">

@@ -3,9 +3,10 @@ class ArticlesController < ApplicationController
 
   #
   def index
-    
-     if params[:status].present? && params[:status] != "mostrar todo"
+    if params[:status].present? && params[:status] != "mostrar todo"
       @articles = Article.where(status: params[:status])
+    elsif params[:tipo_de_articulo].present? 
+      @articles = Article.where(tipo_de_articulo: params[:tipo_de_articulo]) 
     else
       @articles = Article.all
     end
@@ -63,10 +64,9 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
-
   private
     def article_params
-      params.require(:article).permit(:title, :body, :status)
+      params.require(:article).permit(:title, :body, :status, :tipo_de_articulo)
     end
 end
 

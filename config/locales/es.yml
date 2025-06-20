@@ -1,0 +1,11 @@
+en:
+  activerecord:
+    attributes:
+      article:
+        tipo_de_articulo: 'tipe of articles'
+  enums:
+    article:
+      tipo_de_articulo:
+        noticia: 'New'
+        opinion: 'Opinión'
+        reseña: 'Review'
